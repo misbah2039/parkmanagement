@@ -1,0 +1,84 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css"
+    />
+    <title>Create Staff</title>
+  </head>
+  <body>
+{{>nav}}
+
+    <form action="/createroutine" method="POST">
+      <div
+        class="container"
+        style="border: 2px solid rgb(255, 255, 255); margin-top:100px;"
+      >
+        <div class="row mt-4">
+          <div class="col">
+            <input
+              type="text"
+              class="form-control"
+              placeholder="Name *"
+              aria-label="name"
+              name="name"
+            />
+          </div>
+        </div>
+        <div class="row mt-4 mb-4">
+          <div class="col">
+            <label for="">Plantation</label>
+            <input
+              type="time"
+              class="form-control"
+              placeholder="Enter slot"
+              aria-label="slot1"
+              name="slot1"
+            />
+          </div>
+          <div class="col">
+            <label for="">Gardening</label>
+            <input
+              type="time"
+              class="form-control"
+              placeholder="Enter slot"
+              aria-label="slot2"
+              name="slot2"
+            />
+          </div>
+          <div class="col">
+            <label for="">Watering</label>
+            <input
+              type="time"
+              class="form-control"
+              placeholder="Enter slot"
+              aria-label="slot3"
+              name="slot3"
+            />
+          </div>
+        </div>    
+        <div class="row">
+            <div class="col">
+                <input
+          type="submit"
+          class="btnRegister btn-primary w-100"
+          value="Book Slot"
+        />
+            </div>
+        </div>    
+        </div>
+        
+      </div>
+    </form>
+    {{>footer}}
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js"></script>
+  </body>
+</html>
