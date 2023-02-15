@@ -24,21 +24,23 @@ app.use(express.urlencoded({ extended: false }));
 app.get("/", (req, res) => {
     res.render("home")
 })
-app.get("/addstaff", (req, res) => {
-    res.render("addstaff")
+app.get("/addstaff", auth, (req, res) => {
+    if (req.user.rol === "admin") {
+        res.render("addstaff")
+    }
+    else {
+        res.send("you are not admin")
+    }
 })
-app.get("/viewstaff", auth, (req, res) => {
-    if (req.user.role == "admin") {
-        Register.find({}).then((x) => {
-            res.render("viewstaff", { x })
-            console.log(x)
-        }).catch((err) => {
-            console.log(err);
-        })
-    }
-    else{
-        res.send("You are not admin")
-    }
+app.get("/viewstaff", (req, res) => {
+
+    Register.find({}).then((x) => {
+        res.render("viewstaff", { x })
+        console.log(x)
+    }).catch((err) => {
+        console.log(err);
+    })
+
 
 })
 
@@ -50,8 +52,14 @@ app.get("/viewroutine", (req, res) => {
         console.log(err);
     })
 })
-app.get("/createroutine", (req, res) => {
-    res.render("createroutine")
+app.get("/createroutine", auth, (req, res) => {
+    if (req.user.role === "admin") {
+        res.render("createroutine")
+
+    }
+    else {
+        res.send("you are not admin")
+    }
 })
 
 app.get("/login", (req, res) => {
